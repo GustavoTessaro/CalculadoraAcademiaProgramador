@@ -102,8 +102,6 @@ while (continuar == true)
         }
     }
 
-
-
     double resultado = 0;
 
     switch (operacao)
