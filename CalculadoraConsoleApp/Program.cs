@@ -7,14 +7,39 @@ Console.WriteLine("Bem-vindo à Calculadora Console!");
 Boolean continuar = true;
 double num1 = 0, num2 = 0;
 
+List<string> historicoOperacoes = new List<string>();
+
 while (continuar == true)
 {
     Boolean confirmacao = true;
     Boolean confirmacao2 = true;
     Boolean voltarTabuada = false;
 
-    Console.WriteLine("Escolha a operação: +, -, *, /, Tabuada");
+    Console.WriteLine("Escolha a operação: +, -, *, /, Tabuada, Digite 1 para Histórico");
     string operacao = Console.ReadLine();
+
+    if(String.Equals(operacao, "1", StringComparison.OrdinalIgnoreCase))
+    {
+        Console.WriteLine("");
+        Console.WriteLine("Histórico de Operações:");
+
+        if (historicoOperacoes.Count == 0)
+        {
+            Console.WriteLine("Nenhuma operação realizada ainda.");
+        }
+        else
+        {
+            foreach (string operacaoHistorico in historicoOperacoes)
+            {
+                Console.WriteLine(operacaoHistorico);
+            }
+        }
+
+        continue;
+    }
+
+
+
 
     if (String.Equals(operacao, "Tabuada", StringComparison.OrdinalIgnoreCase))
     {
@@ -108,17 +133,21 @@ while (continuar == true)
     {
         case "+":
             resultado = num1 + num2;
+            historicoOperacoes.Add($"{num1} + {num2} = {resultado}");
             break;
         case "-":
             resultado = num1 - num2;
+            historicoOperacoes.Add($"{num1} - {num2} = {resultado}");
             break;
         case "*":
             resultado = num1 * num2;
+            historicoOperacoes.Add($"{num1} * {num2} = {resultado}");
             break;
         case "/":
             if (num2 != 0)
             {
                 resultado = num1 / num2;
+                historicoOperacoes.Add($"{num1} / {num2} = {resultado}");
             }
             else
             {
