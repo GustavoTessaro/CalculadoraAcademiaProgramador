@@ -15,7 +15,7 @@ while (continuar == true)
     Boolean confirmacao2 = true;
     Boolean voltarTabuada = false;
 
-    Console.WriteLine("Escolha a operação: +, -, *, /, Tabuada, Digite 1 para Histórico");
+    Console.WriteLine("Escolha a operação: +, -, *, /, Tabuada, Digite 1 para Histórico de Operações");
     string operacao = Console.ReadLine();
 
     if(String.Equals(operacao, "1", StringComparison.OrdinalIgnoreCase))
